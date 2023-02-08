@@ -10,7 +10,7 @@ services:
     depends_on:
       - db
     volumes:
-      - .:/usr/src/app
+      - ./server/src:/app/src
     environment:
       DB_SCHEMA: postgres
       DB_USER: postgres
