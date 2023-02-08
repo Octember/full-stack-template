@@ -19,4 +19,4 @@ COPY ./models ./models
 # Installs all packages
 
 # Runs the dev npm script to build & start the server
-CMD npm run dev
+CMD npm run migrate && npm run dev
