@@ -1,5 +1,15 @@
 version: '3.8'
 services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      
+    depends_on:
+      - api
+    ports:
+      - 3000:3000
+
   api:
     container_name: api
     restart: always
