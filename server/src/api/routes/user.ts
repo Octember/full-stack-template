@@ -26,7 +26,6 @@ usersRouter.delete('/:id', () => {
 usersRouter.post('/', (async (req: Request, res: Response) => {
 
     const payload: CreateUserDTO = req.body
-    console.log("Creating user w body", payload)
     const result = await usersService.create(payload)
 
     if (result instanceof Error) {
