@@ -8,11 +8,15 @@ WORKDIR /app
 # Copies package.json, package-lock.json, tsconfig.json, .env to the root of WORKDIR
 COPY ["package.json", "package-lock.json", "tsconfig.json", ".env", "./"]
 
+RUN npm install
+
 # Copies everything in the src directory to WORKDIR/src
 COPY ./src ./src
+COPY ./migrations ./migrations
+COPY ./config ./config
+COPY ./models ./models
 
 # Installs all packages
-RUN npm install
 
 # Runs the dev npm script to build & start the server
 CMD npm run dev

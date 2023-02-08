@@ -1,10 +1,13 @@
 import express, { NextFunction, Request, Response } from "express";
 import dotenv from "dotenv";
 import { Pool } from "pg";
+import {User, test} from './db';
 
 const app = express();
 dotenv.config(); //Reads .env file and makes it accessible via process.env
 
+
+console.log("HOST", process.env.DB_HOST)
 const pool = new Pool({
   host: process.env.DB_HOST,
   user: 'postgres',
@@ -22,7 +25,11 @@ const connectToDB = async () => {
 };
 connectToDB();
 
+test();
+
 app.get("/test", (req: Request, res: Response, next: NextFunction) => {
+
+    const foo = User.findAll
   res.send("hi");
 });
 
