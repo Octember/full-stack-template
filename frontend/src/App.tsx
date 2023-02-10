@@ -1,29 +1,24 @@
-import './App.css';
-
-import React, { useState } from 'react';
-import { useQuery } from 'react-query';
-
-import logo from './logo.svg';
-import { getUser } from './api/user';
+import React from 'react';
 import { DemoComponent } from './components/DemoComponent';
 
+import { Layout, Space, Menu } from 'antd';
+
+const { Header, Content, Footer } = Layout;
+
 function App() {
-  const [message, setMessage] = useState('');
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="header">
-          🚀 Vite + React + Typescript 🤘 & <br />
-          Eslint 🔥+ Prettier
-        </p>
-
-        <div className="body">
+    <Layout>
+      <Header>
+        <Menu theme="dark" mode="horizontal" items={[{ key: 'foo', label: 'bar' }]} />{' '}
+      </Header>
+      <Content style={{ padding: '1rem', minHeight: '500px' }}>
+        <Space size="large">
           <DemoComponent />
-        </div>
-      </header>
-    </div>
+          <DemoComponent />
+        </Space>
+      </Content>
+      <Footer />
+    </Layout>
   );
 }
 
